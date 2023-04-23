@@ -53,7 +53,7 @@ keepiton_2016_18$state <- gsub("Itanagar", "Arunachal Pradesh", keepiton_2016_18
 #### Create string with all indian districts ####
 
 # load list of all Indian districts from GADM
-india_shapes_disctricts <- st_read("/Users/jenskoning/Documents/R_Projects/Shutdowns_data/gadm41_IND_2.json")
+india_shapes_disctricts <- st_read("/Users/jenskoning/Documents/R_Projects/internet_shutdowns_india/Shutdowns_data/gadm41_IND_2.json")
 # make a vector with all Indian districts based on NAME_2 variable
 input_string <- as.character(india_shapes_disctricts$NAME_2)
 

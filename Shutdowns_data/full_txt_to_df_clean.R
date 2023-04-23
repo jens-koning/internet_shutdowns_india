@@ -15,7 +15,7 @@ tabular_data <- readRDS("tabular_data.rds") # data from Waybackmachine for 2021 
 #### From text to data frame 2020 ####
 
 # Set the path to the text file
-file_path <- "/Users/jenskoning/Documents/R_Projects/Shutdowns_data/shutdowns_india_2020_chatGPT.txt"
+file_path <- "/Users/jenskoning/Documents/R_Projects/internet_shutdowns_india/Shutdowns_data/shutdowns_india_2020_chatGPT.txt"
 
 # Read in the text file as a character vector
 file_lines <- readLines(file_path)
@@ -207,7 +207,7 @@ converted_date_temp2 <- as
 #### Make maps showing yearly events using sf #### 
 
 # load shape file
-india_shapes <- st_read("/Users/jenskoning/Documents/R_Projects/Shutdowns_data/gadm41_IND_1.json")
+india_shapes <- st_read("/Users/jenskoning/Documents/R_Projects/internet_shutdowns_india/Shutdowns_data/gadm41_IND_1.json")
 
 # count number of shutdown events in each state
 event_count <- as.data.frame(table(scraped_data$state))

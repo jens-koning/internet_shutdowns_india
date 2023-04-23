@@ -63,7 +63,7 @@ keepiton_india$state <- gsub("Itanagar", "Arunachal Pradesh", keepiton_india$sta
 #### Create string with all indian districts ####
 
 # load list of all Indian districts from GADM
-india_shapes_disctricts <- st_read("/Users/jenskoning/Documents/R_Projects/Shutdowns_data/gadm41_IND_2.json")
+india_shapes_disctricts <- st_read("/Users/jenskoning/Documents/R_Projects/internet_shutdowns_india/Shutdowns_data/gadm41_IND_2.json")
 # make a vector with all Indian districts based on NAME_2 variable
 input_string <- as.character(india_shapes_disctricts$NAME_2)
 
@@ -266,7 +266,7 @@ for (i in event_count$state) {
 event_count$state <- gsub('Delhi', 'NCTofDelhi', event_count$state)
 # merge with shape file
 # load shape file for states
-india_shapes_state <- st_read("/Users/jenskoning/Documents/R_Projects/Shutdowns_data/gadm41_IND_1.json")
+india_shapes_state <- st_read("/Users/jenskoning/Documents/R_Projects/internet_shutdowns_india/Shutdowns_data/gadm41_IND_1.json")
 india_data_viz <- left_join(india_shapes_state, event_count, by = c("NAME_1" = "state"))
 
 # Plotting 
