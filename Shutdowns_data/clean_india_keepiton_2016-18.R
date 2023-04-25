@@ -1,4 +1,4 @@
-####    \\    Clean India Shutdowns Data from the Access Now project, 2016 to 2019   //    ####
+####    \\    Clean India Shutdowns Data from the Access Now project, 2016 to 2018   //    ####
 
 # Clear working environment and install needed packages
 rm(list=ls(all = TRUE))
@@ -10,8 +10,6 @@ lapply(my_packages, require, character.only = TRUE)
 #### Load data and merge data sets ####
 # Load other data source; access now global data base (CODEBOOK: https://www.accessnow.org/wp-content/uploads/2023/03/Read-Me_STOP_data_methodology.pdf)
 # The data for India is collected by https://internetshutdowns.in 
-keepiton_2019 <- read_excel("Keepiton_raw_dataset.xlsx",
-                           sheet = "2019")
 keepiton_2016_18 <- read_excel("Keepiton_raw_dataset.xlsx",
                                sheet = "2016+2017+2018 ")
 
@@ -19,7 +17,7 @@ keepiton_2016_18 <- read_excel("Keepiton_raw_dataset.xlsx",
 keepiton_2016_18 <- keepiton_2016_18 %>%
   filter(country == "India")
 
-#### Create state variable ####
+#### Create state variable for 2016 to 2018 data ####
 # for loop through area_name variable, separating states from the overall location/or single locations from state
 matched_values <- c()
 
@@ -71,7 +69,7 @@ transform_to_string <- function(input_string) {
 # implement function on districts
 india_districts <- transform_to_string(input_string)
 
-#### Create district variable ####
+#### Create district variable for 2016 to 2018 data ####
 
 # modify source coloumn based on known anomaly 
 keepiton_2016_18$area_name <- gsub('Leh(ladakh)', 'Leh(Ladakh)', keepiton_2016_18$area_name)
@@ -134,6 +132,7 @@ keepiton_2016_18$state[150] <- "Uttar Pradesh"
 keepiton_2016_18$state[154] <- "Uttarakhand"
 keepiton_2016_18$state[158] <- "Tamil Nadu"
 keepiton_2016_18$state[166] <- "Meghalaya"
+keepiton_2016_18$state[168:170] <- "Jammu and Kashmir"
 keepiton_2016_18$state[192] <- "Gujarat"
 keepiton_2016_18$state[201] <- "Jammu and Kashmir"
 keepiton_2016_18$state[221] <- "Rajasthan"
@@ -145,12 +144,83 @@ for (i in 1:nrow(keepiton_2016_18)) {
   }
 }
 
-# shorter data set for manual check
-temp_df <- keepiton_2016_18 %>% select(start_date, area_name, state, districts)
+# manual check of districts
+keepiton_2016_18$districts[4] <- "Mahesana"
+keepiton_2016_18$districts[6] <- "Rohtak, Jhajjar"
+keepiton_2016_18$districts[12] <- "Jammu"
+keepiton_2016_18$districts[14] <- "Jammu"
+keepiton_2016_18$districts[18] <- "Jammu"
+keepiton_2016_18$districts[20] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
+keepiton_2016_18$districts[21] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
+keepiton_2016_18$districts[33] <- "Dimapur, Kiphire, Kohima, Longleng, Mokokchung, Mon, Peren, Phek, Tuensang, Wokha, Zunheboto"
+keepiton_2016_18$districts[39] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[41] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[40] <- "Bhadrak"
+keepiton_2016_18$districts[40] <- "Bhadrak"
+keepiton_2016_18$districts[52] <- "Darjiling"
+keepiton_2016_18$districts[55] <- "North24Parganas"
+keepiton_2016_18$districts[57] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[61] <- "Dhalai, Gomati, Khowai, North Tripura, Sipahijala, South Tripura, Unokoti, West Tripura"
+keepiton_2016_18$districts[63] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[66] <- "PapumPare"
+keepiton_2016_18$districts[79] <- "Baramulla"
+keepiton_2016_18$districts[81] <- "West Tripura"
+keepiton_2016_18$districts[87] <- "South West Delhi" 
+keepiton_2016_18$districts[104] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[106] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[115] <- "Bandipore"
+keepiton_2016_18$districts[117] <- "Baramulla"
+keepiton_2016_18$districts[126] <- "Barddhaman"
+keepiton_2016_18$districts[130] <- "Pali"
+keepiton_2016_18$districts[131] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[134] <- NA
+keepiton_2016_18$districts[141] <- "Kapurthala, Jalandhar, Hoshiarpur, ShaheedBhagatSinghNagar"
+keepiton_2016_18$districts[149] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[152] <- "Saharanpur"
+keepiton_2016_18$districts[154] <- "Hardwar"
+keepiton_2016_18$districts[160] <- "JaintiaHills"
+keepiton_2016_18$districts[164:165] <- "KamrupMetropolitan"
+keepiton_2016_18$districts[166] <- "JaintiaHills, EastKhasiHills, SouthWestKhasiHills, WestKhasiHills"
+keepiton_2016_18$districts[176] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
+keepiton_2016_18$districts[171] <- "Dhalai, Gomati, Khowai, North Tripura, Sipahijala, South Tripura, Unokoti, West Tripura"
+keepiton_2016_18$districts[183] <- "Thane, Raigad"
+keepiton_2016_18$districts[187] <- "Pune, Ratnagiri"
+keepiton_2016_18$districts[189] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[190] <- "Bandipore" 
+keepiton_2016_18$districts[192] <- "Mahisagar"
+keepiton_2016_18$districts[198] <- "Udaipur, Banswara"
+keepiton_2016_18$districts[201] <- "Kupwara"
+keepiton_2016_18$districts[205] <- "Shupiyan, Pulwama"
+keepiton_2016_18$districts[211] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[212] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[221] <- "Pali"
+keepiton_2016_18$districts[230] <- "Baramulla"
+
+
+#### Creating new rows (obs) for district shutdown ####
+# use separate_rows() to split keepiton_2016_18$districts
+keepiton_2016_18 <- keepiton_2016_18 %>%
+  # Separate location values into rows
+  separate_rows(districts, sep = ", ") 
+# maunal check with temp object
+temp_df <- keepiton_2016_18 %>% select(start_date, area_name, districts)
 rm(temp_df)
 
-# manual check of districts
-keepiton_2016_18$districts[] <- ""
-keepiton_2016_18$districts[] <- ""
-keepiton_2016_18$districts[] <- ""
-keepiton_2016_18$districts[] <- ""
+#### Export to .rds ####
+
+# state level / all related to communal violence
+district_event_shutdown_2016_18 <- keepiton_2016_18
+saveRDS(district_event_shutdown_2016_18, file = "district_event_shutdown_2016_18.rds")
+district_event_shutdown_communal_2016_18 <- district_event_shutdown_2016_18 %>%
+  filter(actual_cause == "Communal Violence")
+saveRDS(district_event_shutdown_communal_2016_18, file = "district_event_shutdown_communal_2016_18.rds")
+
+# remove temp objects
+rm(list=c("district_event_shutdown_communal_2016_18", "india_shapes_disctricts", "district_event_shutdown_2016_18"))
+
+
+
+
+
+
+
