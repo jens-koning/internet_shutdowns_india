@@ -112,17 +112,80 @@ keepiton_2019$districts <- gsub(', Jammu', "", keepiton_2019$districts)
 keepiton_2019$districts <- gsub(', West', "", keepiton_2019$districts)
 keepiton_2019$districts <- gsub('Jammu', NA, keepiton_2019$districts)
 
-# check
-temp_df <- keepiton_2019 %>% select(start_date, area_name, state, districts)
-rm(temp_df)
-
 # for loop for Kashmir Valley
 for (i in 1:nrow(keepiton_2019)) {
   if (keepiton_2019$area_name[i] == "KashmirValley,") {
     keepiton_2019$districts[i] <- "Anantnag, Kulgam, Pulwama, Shupiyan, Badgam, Srinagar, Ganderbal, Bandipore, Baramulla, Kupwara"
   }
 }
+
+# manual check of states
+keepiton_2019$state[9] <- "Jammu and Kashmir"
+keepiton_2019$state[12] <- "Jammu and Kashmir" 
+keepiton_2019$state[14] <- "Jammu and Kashmir" 
+keepiton_2019$state[21] <- "Uttar Pradesh"
+keepiton_2019$state[29] <- "Jammu and Kashmir"
+keepiton_2019$state[117] <- "Karnataka"
+
 # manual check of districts
 keepiton_2019$districts[5] <- "Dhalai, Gomati, Khowai, North Tripura, Sipahijala, South Tripura, Unokoti, West Tripura"
 keepiton_2019$districts[17] <- "ImphalEast, ImphalWest"
+keepiton_2019$districts[23] <- "Jammu"
+keepiton_2019$districts[23] <- "Jammu"
+keepiton_2019$districts[25] <- "Baramulla"
+keepiton_2019$districts[26] <- "PapumPare"
+keepiton_2019$districts[29] <- "Baramulla"
+keepiton_2019$districts[30] <- "Srinagar"
+keepiton_2019$districts[31] <- "Kupwara"
+keepiton_2019$districts[32] <- "Pulwama"
+keepiton_2019$districts[37] <- "Baramulla"
+keepiton_2019$districts[42] <- "Amritsar, Barnala, Bathinda, Faridkot, FatehgarhSahib, Fazilka, Firozpur, Gurdaspur, Hoshiarpur, Jalandhar, Kapurthala, Ludhiana, Mansa, Moga, Muktsar, Pathankot, Patiala, Rupnagar, SahibzadaAjitSinghNagar, Sangrur, ShahidBhagatSinghNagar, TarnTaran"
+keepiton_2019$districts[50] <- "Barddhaman"
+keepiton_2019$districts[53] <- "Anantnag, Kulgam, Pulwama, Shupiyan, Badgam, Srinagar, Ganderbal, Bandipore, Baramulla, Kupwara"
+keepiton_2019$districts[56:57] <- "Anantnag, Kulgam, Pulwama, Shupiyan, Badgam, Srinagar, Ganderbal, Bandipore, Baramulla, Kupwara"
+keepiton_2019$districts[62] <- "Bandipore"
+keepiton_2019$districts[65] <- "Baramulla"
+keepiton_2019$districts[68] <- "Pulwama"
+keepiton_2019$districts[70] <- "Baramulla"
+keepiton_2019$districts[77] <- "North24Parganas" 
+keepiton_2019$districts[93] <- "Anantnag, Kulgam, Pulwama, Shupiyan, Badgam, Srinagar, Ganderbal, Bandipore, Baramulla, Kupwara"
+keepiton_2019$districts[98] <- "Barddhaman"
+keepiton_2019$districts[102] <- "Baramulla"
+keepiton_2019$districts[103] <- "Anantnag, Kulgam, Pulwama, Shupiyan, Badgam, Srinagar, Ganderbal, Bandipore, Baramulla, Kupwara"
+keepiton_2019$districts[110] <- "Anjaw, Changlang, Dibang Valley, East Kameng, East Siang, East Siang, Kurung Kumey, Lohit, Lohit, Longding, Lower Dibang Valley, Lower Dibang Valley, Lower Subansiri, Namsai, Papum Pare, Tawang, Tirap, Upper Siang, Upper Subansiri"
+keepiton_2019$districts[111] <- "Dhalai, Gomati, Khowai, North Tripura, Sipahijala, South Tripura, Unokoti, West Tripura"
+keepiton_2019$districts[112] <- "Lakhimpur, Dhemaji, Tinsukia, Dibrugarh, Sivasagar, Jorhat, Golaghat, Kamrup, KamrupMetropolitan"
+keepiton_2019$districts[113] <- "East Khasi Hills, West Khasi Hills, South West Khasi Hills, Eastern West Khasi Hills, RiBhoi, EastGaroHills, JaintiaHills, NorthGaroHills, SouthGaroHills, SouthWestGaroHills, WestGaroHills"
+keepiton_2019$districts[115] <- "Aligarh, Meerut"
+keepiton_2019$districts[116] <-"Allahabad, Lucknow, Bareilly, Aligarh, Ghaziabad, Sambhal, Mau, Meerut, Kanpur Dehat, Kanpur Nagar"
+keepiton_2019$districts[118] <- "Jabalpur, Bhopal, Indore"
+keepiton_2019$districts[119] <- "Allahabad, Firozabad"
+keepiton_2019$districts[120] <- "Jaipur"
+keepiton_2019$districts[121] <- "Bijnor, Muzaffarnagar, Meerut, Agra, Firozabad, Sambhal, Aligarh, Ghaziabad, Rampur, Sitapur, KanpurDehat, KanpurNagar"
+
+# maunal check with temp object
+temp_df <- keepiton_2019 %>% select(start_date, area_name, state, districts, news_link)
+rm(temp_df)
+
+#### Creating new rows (obs) for district shutdown ####
+# use separate_rows() to split keepiton_2019$districts
+keepiton_2019 <- keepiton_2019 %>%
+  # Separate location values into rows
+  separate_rows(districts, sep = ", ") 
+# maunal check with temp object
+temp_df <- keepiton_2019 %>% select(start_date, area_name, state, districts)
+rm(temp_df)
+
+#### Export to .rds ####
+
+# state level / all related to communal violence
+district_event_shutdown_2019 <- keepiton_2019
+saveRDS(district_event_shutdown_2019, file = "district_event_shutdown_2019.rds")
+district_event_shutdown_communal_2019 <- district_event_shutdown_2019 %>%
+  filter(actual_cause == "Communal Violence")
+saveRDS(district_event_shutdown_communal_2019, file = "district_event_shutdown_communal_2019.rds")
+
+# remove temp objects
+rm(list=c("district_event_shutdown_communal_2019", "india_shapes_disctricts", "district_event_shutdown_2019", "matched_districts"))
+
 

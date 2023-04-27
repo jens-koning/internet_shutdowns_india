@@ -143,9 +143,13 @@ keepiton_india$districts[42] <- "Shupiyan"
 keepiton_india$districts[46] <- "Shupiyan"
 keepiton_india$districts[48] <- "Konaseema"
 keepiton_india$districts[57] <- "Howrah"
+keepiton_india$districts[64] <- "Kaimur, Aurangabad, Bhojpur, Rohtas, Buxar, Nawada, Pashchim Champaran, Samastipur, Lakhisarai, Begusarai, Vaishali, Saran"
 keepiton_india$districts[68] <- "Ajmer, Alwar, Banswara, Baran, Barmer, Bharatpur, Bhilwara, Bikaner, Bundi, Chittorgarh, Churu, Dausa, Dhaulpur, Dungarpur, Hanumangarh, Jaipur, Jaisalmer, Jalor, Jhalawar, Jhunjhunun, Jodhpur, Karauli, Kota, Nagaur, Pali, Pratapgarh, Rajsamand, SawaiMadhopur, Sikar, Sirohi, Ganganagar, Tonk, Udaipur"
+keepiton_india$districts[71] <- "Bishnupur, Chandel, Churachandpur, ImphalEast, ImphalWest, Senapati, Tamenglong, Thoubal, Ukhrul"
+keepiton_india$districts[74] <- "Baksa, Barpeta, Bongaigaon, Cachar, Chirang, Darrang, Dhemaji, Dhubri, Dibrugarh, Dima Hasao, Goalpara, Golaghat, Hailakandi, Jorhat, Kamrup, Kamrup Metropolitan, Karbi Anglong, Karimganj, Kokrajhar, Lakhimpur, Morigaon, Nagaon, Nalbari, Sivasagar, Sonitpur, Tinsukia, Udalguri"
 keepiton_india$districts[76] <- "Jammu, Rajouri"
 keepiton_india$districts[80] <- "PashchimiSinghbhum"
+keepiton_india$districts[81] <- "East Khasi Hills, West Khasi Hills, South West Khasi Hills, Eastern West Khasi Hills, RiBhoi, EastGaroHills, JaintiaHills"
 keepiton_india$districts[88] <- "Anantnag, Badgam, Bandipore, Doda, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_india$districts[89] <- "Anantnag, Baramulla, Badgam, Bandipore, Ganderbal, Kupwara, Kulgam, Pulwama, Shupiyan, Srinagar"
 keepiton_india$districts[90] <- "East Delhi"
@@ -197,6 +201,9 @@ keepiton_india$districts[286] <- "LowerSubansiri, UpperSubansiri, LowerDibangVal
 keepiton_india$districts[290] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_india$districts[293] <- "Pulwama, Anantnag, Kulgam, Shupiyan"
 keepiton_india$districts[294] <- "Pulwama, Anantnag, Kulgam, Shupiyan"
+
+temp_short_df <- keepiton_india %>% select(start_date, area_name, state, districts, info_source_link, gov_ack_source)
+rm(temp_short_df)
 
 #### Creating new rows (obs) for district shutdown ####
 # use separate_rows() to split keepiton_india$districts
@@ -310,11 +317,11 @@ ggsave("states_shutdown_hist_noJK.jpg", plot = hist_states_noJK, width = 12, hei
 #### Export to .rds ####
 
 # state level / all related to communal violence
-district_event_shutdown <- keepiton_india
-saveRDS(district_event_shutdown, file = "district_event_shutdown.rds")
-district_event_shutdown_communal <- district_event_shutdown %>%
+district_event_shutdown_2020_22 <- keepiton_india
+saveRDS(district_event_shutdown_2020_22, file = "district_event_shutdown_2020_22.rds")
+district_event_shutdown_communal_2020_22 <- district_event_shutdown_2020_22 %>%
   filter(actual_cause == "Communal violence")
-saveRDS(district_event_shutdown_communal, file = "district_event_shutdown_communal.rds")
+saveRDS(district_event_shutdown_communal_2020_22, file = "district_event_shutdown_communal_2020_22.rds")
 
 # remove temp objects
 rm(list=c("top_20_districts", "matched_districts", "event_count", "event_count_filtered", "india_data_viz", "india_shapes_disctricts", "india_shapes_state",

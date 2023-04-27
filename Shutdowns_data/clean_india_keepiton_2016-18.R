@@ -146,12 +146,15 @@ for (i in 1:nrow(keepiton_2016_18)) {
 
 # manual check of districts
 keepiton_2016_18$districts[4] <- "Mahesana"
+keepiton_2016_18$districts[5] <-"Ahmadabad, Amreli, Anand, Aravalli, BanasKantha, Bharuch, Bhavnagar, Botad, ChhotaUdaipur, Dahod, DevbhumiDwarka, Gandhinagar, GirSomnath, Jamnagar, Junagadh, Kachchh, Kheda, Mahesana, Mahisagar, Morbi, Narmada, Navsari, PanchMahals, Patan, Porbandar, Rajkot, SabarKantha, Surat, Surendranagar, Tapi, TheDangs, Vadodara, Valsad"
 keepiton_2016_18$districts[6] <- "Rohtak, Jhajjar"
 keepiton_2016_18$districts[12] <- "Jammu"
 keepiton_2016_18$districts[14] <- "Jammu"
 keepiton_2016_18$districts[18] <- "Jammu"
 keepiton_2016_18$districts[20] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
 keepiton_2016_18$districts[21] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
+keepiton_2016_18$districts[25] <- "Gopalganj, Bhojpur, Madhubani, Purba Champaran, Madhepura, Kishanganj"
+keepiton_2016_18$districts[28] <-"ImphalEast, ImphalWest"
 keepiton_2016_18$districts[33] <- "Dimapur, Kiphire, Kohima, Longleng, Mokokchung, Mon, Peren, Phek, Tuensang, Wokha, Zunheboto"
 keepiton_2016_18$districts[39] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[41] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
@@ -163,6 +166,7 @@ keepiton_2016_18$districts[57] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda,
 keepiton_2016_18$districts[61] <- "Dhalai, Gomati, Khowai, North Tripura, Sipahijala, South Tripura, Unokoti, West Tripura"
 keepiton_2016_18$districts[63] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[66] <- "PapumPare"
+keepiton_2016_18$districts[76] <- "Madhepura, Supaul, Saharsa, Araria, Kishanganj, Katihar"
 keepiton_2016_18$districts[79] <- "Baramulla"
 keepiton_2016_18$districts[81] <- "West Tripura"
 keepiton_2016_18$districts[87] <- "South West Delhi" 
@@ -173,29 +177,41 @@ keepiton_2016_18$districts[117] <- "Baramulla"
 keepiton_2016_18$districts[126] <- "Barddhaman"
 keepiton_2016_18$districts[130] <- "Pali"
 keepiton_2016_18$districts[131] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
+keepiton_2016_18$districts[132] <-"Amritsar, Barnala, Bathinda, Faridkot, Fatehgarh Sahib, Fazilka, Firozpur, Gurdaspur, Hoshiarpur, Jalandhar, Kapurthala, Ludhiana, Mansa, Moga, Muktsar, Pathankot, Patiala, Rupnagar, Sahibzada Ajit Singh Nagar, Sangrur, Shahid Bhagat Singh Nagar, Tarn Taran"
 keepiton_2016_18$districts[134] <- NA
 keepiton_2016_18$districts[141] <- "Kapurthala, Jalandhar, Hoshiarpur, ShaheedBhagatSinghNagar"
 keepiton_2016_18$districts[149] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[152] <- "Saharanpur"
 keepiton_2016_18$districts[154] <- "Hardwar"
 keepiton_2016_18$districts[160] <- "JaintiaHills"
+keepiton_2016_18$districts[163] <- "EastGaroHills, NorthGaroHills, SouthGaroHills, SouthWestGaroHills"
 keepiton_2016_18$districts[164:165] <- "KamrupMetropolitan"
 keepiton_2016_18$districts[166] <- "JaintiaHills, EastKhasiHills, SouthWestKhasiHills, WestKhasiHills"
+keepiton_2016_18$districts[174] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
 keepiton_2016_18$districts[176] <- "Anantnag, Badgam, Bandipore, Baramulla, Doda, Ganderbal, Jammu, Kargil, Kathua, Kishtwar, Kulgam, Kupwara, Leh(Ladakh), Poonch, Pulwama, Rajouri, Ramban, Reasi, Samba, Shupiyan, Srinagar, Udhampur"
+keepiton_2016_18$districts[177] <- "Ajmer, Alwar, Banswara, Baran, Barmer, Bharatpur, Bhilwara, Bikaner, Bundi, Chittaurgarh, Churu, Dausa, Dhaulpur, Dungarpur, Ganganagar, Hanumangarh, Jaipur, Jaisalmer, Jalor, Jhalawar, Jhunjhunun, Jodhpur, Karauli, Kota, Nagaur, Pali, Pratapgarh, Rajsamand, Sawai Madhopur, Sikar, Sirohi, Tonk, Udaipur"
 keepiton_2016_18$districts[171] <- "Dhalai, Gomati, Khowai, North Tripura, Sipahijala, South Tripura, Unokoti, West Tripura"
+keepiton_2016_18$districts[184] <- "Anjaw, Changlang, Dibang Valley, East Kameng, East Siang, East Siang, Kurung Kumey, Lohit, Lohit, Longding, Lower Dibang Valley, Lower Dibang Valley, Lower Subansiri, Namsai, Papum Pare, Tawang, Tirap, Upper Siang, Upper Subansiri."
 keepiton_2016_18$districts[183] <- "Thane, Raigad"
+keepiton_2016_18$districts[186] <- "Ajmer, Alwar, Dausa, Jhunjhunun, Sikar, Bharatpur, Jodhpur"
 keepiton_2016_18$districts[187] <- "Pune, Ratnagiri"
 keepiton_2016_18$districts[189] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[190] <- "Bandipore" 
 keepiton_2016_18$districts[192] <- "Mahisagar"
 keepiton_2016_18$districts[198] <- "Udaipur, Banswara"
 keepiton_2016_18$districts[201] <- "Kupwara"
+keepiton_2016_18$districts[204] <- "Bishnupur, Chandel, Churachandpur, Imphal East, Imphal West, Senapati, Tamenglong, Thoubal, Ukhrul"
 keepiton_2016_18$districts[205] <- "Shupiyan, Pulwama"
+keepiton_2016_18$districts[207:209] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[211] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[212] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[221] <- "Pali"
 keepiton_2016_18$districts[230] <- "Baramulla"
 
+keepiton_2016_18$state <- gsub("Jammu and Kashmir and Jammu and Kashmir", "Jammu and Kashmir", keepiton_2016_18$state)
+# check
+temp_df <- keepiton_2016_18 %>% select(start_date, area_name, state, districts, news_link)
+rm(temp_df)
 
 #### Creating new rows (obs) for district shutdown ####
 # use separate_rows() to split keepiton_2016_18$districts
