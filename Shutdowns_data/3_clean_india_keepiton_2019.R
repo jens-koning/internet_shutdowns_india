@@ -4,7 +4,7 @@
 rm(list=ls(all = TRUE))
 
 # Load needed packages
-my_packages <- c("dplyr", "tidyr", "stringr", "readxl", "sf", "ggplot2", "viridis")
+my_packages <- c("dplyr", "tidyr", "stringr", "readxl", "sf", "ggplot2", "viridis", "janitor")
 lapply(my_packages, require, character.only = TRUE) 
 
 #### Load data and merge data sets ####
@@ -15,6 +15,9 @@ keepiton_2019 <- read_excel("Keepiton_raw_dataset.xlsx",
 # Filter out Indian shutdowns
 keepiton_2019 <- keepiton_2019 %>%
   filter(country == "India")
+# Fix excel date import issue using janitor
+keepiton_2019$end_date <- as.numeric(keepiton_2019$end_date)
+keepiton_2019$end_date <- excel_numeric_to_date(keepiton_2019$end_date)
 
 #### Create state variable ####
 # for loop through area_name variable, separating states from the overall location/or single locations from state

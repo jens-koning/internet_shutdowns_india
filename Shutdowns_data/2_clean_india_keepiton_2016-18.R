@@ -4,9 +4,8 @@
 rm(list=ls(all = TRUE))
 
 # Load needed packages
-my_packages <- c("dplyr", "tidyr", "stringr", "readxl", "sf", "ggplot2", "viridis")
+my_packages <- c("dplyr", "tidyr", "stringr", "readxl", "sf", "ggplot2", "viridis", "janitor")
 lapply(my_packages, require, character.only = TRUE) 
-
 #### Load data and merge data sets ####
 # Load other data source; access now global data base (CODEBOOK: https://www.accessnow.org/wp-content/uploads/2023/03/Read-Me_STOP_data_methodology.pdf)
 # The data for India is collected by https://internetshutdowns.in 
@@ -16,6 +15,10 @@ keepiton_2016_18 <- read_excel("Keepiton_raw_dataset.xlsx",
 # Filter out Indian shutdowns
 keepiton_2016_18 <- keepiton_2016_18 %>%
   filter(country == "India")
+# Fix excel date import issue using janitor
+keepiton_2016_18$end_date <- as.numeric(keepiton_2016_18$end_date)
+keepiton_2016_18$end_date <- excel_numeric_to_date(keepiton_2016_18$end_date)
+
 
 #### Create state variable for 2016 to 2018 data ####
 # for loop through area_name variable, separating states from the overall location/or single locations from state
@@ -127,6 +130,7 @@ keepiton_2016_18$state[113] <- "Uttar Pradesh"
 keepiton_2016_18$state[117] <- "Jammu and Kashmir"
 keepiton_2016_18$state[129] <- "Bihar"
 keepiton_2016_18$state[130] <- "Rajasthan"
+keepiton_2016_18$state[134] <- "Madhya Pradesh"
 keepiton_2016_18$state[138] <- "Uttar Pradesh"
 keepiton_2016_18$state[150] <- "Uttar Pradesh"
 keepiton_2016_18$state[154] <- "Uttarakhand"
@@ -178,7 +182,7 @@ keepiton_2016_18$districts[126] <- "Barddhaman"
 keepiton_2016_18$districts[130] <- "Pali"
 keepiton_2016_18$districts[131] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[132] <-"Amritsar, Barnala, Bathinda, Faridkot, Fatehgarh Sahib, Fazilka, Firozpur, Gurdaspur, Hoshiarpur, Jalandhar, Kapurthala, Ludhiana, Mansa, Moga, Muktsar, Pathankot, Patiala, Rupnagar, Sahibzada Ajit Singh Nagar, Sangrur, Shahid Bhagat Singh Nagar, Tarn Taran"
-keepiton_2016_18$districts[134] <- NA
+keepiton_2016_18$districts[134] <- "Gwalior"
 keepiton_2016_18$districts[141] <- "Kapurthala, Jalandhar, Hoshiarpur, ShaheedBhagatSinghNagar"
 keepiton_2016_18$districts[149] <- "Anantnag, Bandipore, Baramulla, Badgam, Doda, Jammu, Kathua, Kishtwar, Kulgam, Kupwara, Poonch, Pulwama, Rajauri, Ramban, Reasi, Samba, Shupiyan, Srinagar"
 keepiton_2016_18$districts[152] <- "Saharanpur"
@@ -232,7 +236,7 @@ district_event_shutdown_communal_2016_18 <- district_event_shutdown_2016_18 %>%
 saveRDS(district_event_shutdown_communal_2016_18, file = "district_event_shutdown_communal_2016_18.rds")
 
 # remove temp objects
-rm(list=c("district_event_shutdown_communal_2016_18", "india_shapes_disctricts", "district_event_shutdown_2016_18"))
+rm(list=c("district_event_shutdown_communal_2016_18", "india_shapes_disctricts", "district_event_shutdown_2016_18", "matched_districts"))
 
 
 

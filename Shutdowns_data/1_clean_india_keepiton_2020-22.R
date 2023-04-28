@@ -16,10 +16,6 @@ keepiton_2021 <- read_excel("Keepiton_raw_dataset.xlsx",
                             sheet = "2021 Data")
 keepiton_2020 <- read_excel("Keepiton_raw_dataset.xlsx",
                             sheet = "2020 Data")
-keepiton_2019<- read_excel("Keepiton_raw_dataset.xlsx",
-                            sheet = "2019")
-keepiton_2016_18 <- read_excel("Keepiton_raw_dataset.xlsx",
-                            sheet = "2016+2017+2018 ")
 keepiton_full <- bind_rows(keepiton_2022, keepiton_2021, keepiton_2020)
 
 # Filter out Indian shutdowns
