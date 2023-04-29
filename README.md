@@ -9,35 +9,35 @@
 
 ### Description of Data set
 
-start_date: start date of shutdown in "%Y/%m/%d" format.
+**start_date**: start date of shutdown in "%Y/%m/%d" format.
 
-end_date: end date of shutdown in "%Y/%m/%d" format.
+**end_date**: end date of shutdown in "%Y/%m/%d" format.
 
-duration_days: the duration of the shutdown in days (1 day is 24 hours).
+**duration_days**: the duration of the shutdown in days (1 day is 24 hours).
 
-duration_hours: the duration of the shutdown in hours.
+**duration_hours**: the duration of the shutdown in hours.
 
-country: India.
+**country**: India.
 
-state: state in India. GDAM level 1 naming. 
+**state**: state in India. GDAM level 1 naming. 
 
-districts: district in India. GDAM level 2 naming. 
+**districts**: district in India. GDAM level 2 naming. 
 
-event: what happened where the shutdown took place. 
+**event**: what happened where the shutdown took place. 
 
-area_name_string: original string denoting the area where it took place by #KeepitOn. 
+**area_name_string**: original string denoting the area where it took place by #KeepitOn. 
 
-ordered_by: the government authority (Local, State etc.) who issued the shutdown. 
+**ordered_by**: the government authority (Local, State etc.) who issued the shutdown. 
 
-gov_justification: the government justification for the shutdown (if any). 
+**gov_justification**: the government justification for the shutdown (if any). 
 
-affected_network: the network affected by the shutdown.
+**affected_network**: the network affected by the shutdown.
 
-actual_cause: actual cause of the shutdown as estimated by #KeepitOn. 
+**actual_cause**: actual cause of the shutdown as estimated by #KeepitOn. 
 
-source_link: source of information (URL).
+**source_link**: source of information (URL).
 
-gov_ack_source: government acknowledgement or official document describing the shutdown (URL).
+**gov_ack_source**: government acknowledgement or official document describing the shutdown (URL).
 
 ### Replication 
 R code can be run sequentially, starting with script “1_(...)” and ending with script “4_(...)”. This codebook refers to the .rds file "shutdowns_india_2016_22.rds".
