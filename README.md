@@ -11,7 +11,7 @@ start_date: start date of shutdown in "%Y/%m/%d" format.
 
 end_date: end date of shutdown in "%Y/%m/%d" format.
 
-duration_days: the duration of the shutdown in days (1 day is 24 hrs).
+duration_days: the duration of the shutdown in days (1 day is 24 hours).
 
 duration_hours: the duration of the shutdown in hours.
 
