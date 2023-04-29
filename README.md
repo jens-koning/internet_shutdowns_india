@@ -1,6 +1,6 @@
 ## Spatio-temporal Internet Shutdowns Data Set for India
 
-India has the most internet shutdowns in the world, with a total tally of 1'978 district-level shutdowns between from 2016 to the end of 2022. To better understand the nature of shutdowns in India, and its effects on political and economic outcomes, we need detailed spatio-temporal data on where and when the shutdowns took place. My data set attempts to brige this gap by making internet shutdowns data widely available and easy to use for researchers and the public alike. 
+India has the most internet shutdowns in the world, with a total tally of 1,978 district-level shutdowns between from 2016 to the end of 2022. To better understand the nature of shutdowns in India, and its effects on political and economic outcomes, we need detailed spatio-temporal data on where and when the shutdowns took place. My data set attempts to brige this gap by making internet shutdowns data widely available and easy to use for researchers and the public alike. 
 
 ### What I have done 
 
