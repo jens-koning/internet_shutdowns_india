@@ -1,11 +1,11 @@
 ## Spatio-temporal Internet Shutdowns Data Set for India
 
-India has the most internet shutdowns in the world, with a total tally of 1,978 district-level shutdowns from the beginning of 2016 to the end of 2022. To better understand the nature of shutdowns in India, and its effects on political and economic outcomes, we need detailed spatio-temporal data on where and when the shutdowns took place. My data set attempts to brige this gap by making internet shutdowns data widely available and easy to use for researchers and the public alike. 
+India has the most internet shutdowns in the world (Access Now 2023), with a tally of 1,978 district-level shutdowns between the beginning of 2016 and the end of 2022. To better understand internet shutdowns in India, and its effects on political and economic outcomes, we need detailed spatio-temporal data on where and when the shutdowns took place. My data set attempts to brige this gap by making internet shutdowns data widely available and easy to use for researchers and the public alike by aligning available data with GADM level 2 naming conventions. 
 
 ### What I have done 
 
 1) Imported the different sheets from #KeepitOn STOP Data 2016-2022. (https://docs.google.com/spreadsheets/d/1DvPAuHNLp5BXGb0nnZDGNoiIwEeu2ogdXEIDvT4Hyfk/edit#gid=798303217)
-2) Gone through all 1978 obesevation (shutdowns) and extracted “state” and “districts” based on “area_name_string.” Manually controlled automated matching, added GDAM level 2 names: https://gadm.org/download_country.html. For state-wide shutdowns, districts have been identified by triangulating information based on URLs supplied in #keepiton’s original data set. If districts where identified they were added manually to the "districts"-column.
+2) Gone through all 1978 obesevation (shutdowns) and extracted “state” and “districts” based on “area_name_string.” Manually controlled automated matching, added GADM level 2 names: https://gadm.org/download_country.html. For state-wide shutdowns, districts have been identified by triangulating information based on URLs supplied in #keepiton’s original data set. If districts where identified they were added manually to the "districts"-column.
 3) Merged all files into a full time series from 2016 to 2022, cleaned inconsistencies in each column. 
 4) Calculated duration of each shutdown where data was available. 
 
@@ -21,9 +21,9 @@ India has the most internet shutdowns in the world, with a total tally of 1,978 
 
 **country**: India.
 
-**state**: state in India. GDAM level 1 naming. 
+**state**: state in India. GADM level 1 naming. 
 
-**districts**: district in India. GDAM level 2 naming. 
+**districts**: district in India. GADM level 2 naming. 
 
 **event**: what happened where the shutdown took place. 
 
@@ -48,4 +48,5 @@ R code can be run sequentially, starting with script “1_(...)” and ending wi
 ![districts_shutdown_map_full_ts_log](https://user-images.githubusercontent.com/17031112/235295295-ce850a40-0f31-43c7-b03a-86b8ff507eab.jpg)
 ![time_series_plot_viridis](https://user-images.githubusercontent.com/17031112/235295299-7f500040-b85c-40c8-b2aa-efb03c8ab5ae.jpg)
 
-
+### References
+[1] Access Now. (2023, 20. March). ***Five years in a row: India is 2022’s biggest internet shutdowns offender***. Access Now. https://www.accessnow.org/press-release/keepiton-internet-shutdowns-2022-india/
