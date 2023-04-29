@@ -41,6 +41,6 @@ gov_ack_source: government acknowledgement or official document describing the s
 R code can be run sequentially, starting with script “1_(...)” and ending with script “4_(...)”. This codebook refers to the .rds file "shutdowns_india_2016_22.rds".
 
 ### Data Distribution 
-![districts_shutdown_map_full_ts_log](https://user-images.githubusercontent.com/17031112/235295295-ce850a40-0f31-43c7-b03a-86b8ff507eab.jpg)
 ![time_series_plot_viridis](https://user-images.githubusercontent.com/17031112/235295299-7f500040-b85c-40c8-b2aa-efb03c8ab5ae.jpg)
+![districts_shutdown_map_full_ts_log](https://user-images.githubusercontent.com/17031112/235295295-ce850a40-0f31-43c7-b03a-86b8ff507eab.jpg)
 
