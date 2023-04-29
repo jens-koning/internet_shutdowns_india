@@ -2,8 +2,8 @@
 
 ### What I have done 
 
-1) Imported the different sheets from #KeepitOn STOP Data 2016-2022 (https://docs.google.com/spreadsheets/d/1DvPAuHNLp5BXGb0nnZDGNoiIwEeu2ogdXEIDvT4Hyfk/edit#gid=798303217)
-2) Gone through all 1978 obesevation and extracted “state” and “districts” based on “area_name_string.” Manually controlled automated matching, added GDAM level 2 names: https://gadm.org/download_country.html. For state-wide shutdowns, districts have been identified by triangulating information based on URLs supplied in #keepiton’s original data set. If districts where identified they were added manually to the "districts"-column.
+1) Imported the different sheets from #KeepitOn STOP Data 2016-2022. (https://docs.google.com/spreadsheets/d/1DvPAuHNLp5BXGb0nnZDGNoiIwEeu2ogdXEIDvT4Hyfk/edit#gid=798303217)
+2) Gone through all 1978 obesevation (shutdowns) and extracted “state” and “districts” based on “area_name_string.” Manually controlled automated matching, added GDAM level 2 names: https://gadm.org/download_country.html. For state-wide shutdowns, districts have been identified by triangulating information based on URLs supplied in #keepiton’s original data set. If districts where identified they were added manually to the "districts"-column.
 3) Merged all files into a full time series from 2016 to 2022, cleaned inconsistencies in each column. 
 4) Calculated duration of each shutdown where data was available. 
 
