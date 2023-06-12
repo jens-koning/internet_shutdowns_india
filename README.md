@@ -1,13 +1,13 @@
 ## Spatio-temporal Internet Shutdowns Data Set for India
 
-India experiences more government-induced internet shutdowns than any other country the world (AccessNow, 2023), with a tally of 1,978 district-level shutdowns from 2016 to the end of 2022. To better understand these shutdowns, and their effects on political and economic outcomes in India, we need detailed spatio-temporal data on where and when the shutdowns took place. My data set attempts to brige this gap by making internet shutdowns data accessable and easy to use for researchers and the public alike by aligning available data with GADM level 2 naming conventions. 
+India experiences more government-induced internet shutdowns than any other country the world (AccessNow, 2023a), with a tally of 1,978 district-level shutdowns from 2016 to the end of 2022. To better understand these shutdowns, and their effects on political and economic outcomes in India, we need detailed spatio-temporal data on where and when the shutdowns took place. My data set attempts to brige this gap by making internet shutdowns data accessable and easy to use for researchers and the public alike by aligning available data with GADM level 2 naming conventions. 
 
 ### What I have done 
 
-1) Imported the different sheets from #KeepitOn STOP Data 2016-2022. (https://docs.google.com/spreadsheets/d/1DvPAuHNLp5BXGb0nnZDGNoiIwEeu2ogdXEIDvT4Hyfk/edit#gid=798303217)
-2) Gone through all 1978 obesevation (shutdowns) and extracted “state” and “districts” based on “area_name_string.” Manually verified fuzzy-matching. Added GADM level 2 naming conventions to all districts (https://gadm.org/download_country.html). For state-wide shutdowns, districts have been identified by triangulating information based on URLs supplied in #keepiton’s original data set. If additional districts where identified they were added manually to the "districts"-column.
-3) Merged all files into a full time series from 2016 to 2022, cleaned inconsistencies in each column. 
-4) Calculated duration of each shutdown where data was available. 
+1) Imported the different sheets from #KeepitOn Shutdown Tracker Optimization Project (STOP) for 2016-2022 (Access Now, 2023b). The raw collected data can be accessed through https://docs.google.com/spreadsheets/d/1DvPAuHNLp5BXGb0nnZDGNoiIwEeu2ogdXEIDvT4Hyfk/edit#gid=798303217. The methodology for how the data was collected is outlined in the following PDF: https://www.accessnow.org/wp-content/uploads/2023/03/Read-Me_STOP_data_methodology.pdf (updated 2023). 
+3) Gone through all 1978 obesevation (shutdowns) and extracted “state” and “districts” based on “area_name_string.” Manually verified fuzzy-matching. Added GADM level 2 naming conventions to all districts (https://gadm.org/download_country.html). For state-wide shutdowns, districts have been identified by triangulating information based on URLs supplied in #keepiton’s original data set. If additional districts where identified they were added manually to the "districts"-column.
+4) Merged all files into a full time series from 2016 to 2022, cleaned inconsistencies in each column. 
+5) Calculated duration of each shutdown where data was available. 
 
 ### Description of Data set
 
@@ -42,11 +42,13 @@ India experiences more government-induced internet shutdowns than any other coun
 **gov_ack_source**: government acknowledgement or official document describing the shutdown (URL).
 
 ### Replication 
-R code can be run sequentially, starting with script “1_(...)” and ending with script “4_(...)”. This codebook refers to the .rds file "shutdowns_india_2016_22.rds".
+R code can be run sequentially, starting with script “1_(...)” and ending with script “4_(...)”. This codebook refers to the output data, the .rds file "shutdowns_india_2016_22.rds".
 
 ### Spatio-temporal Distribution 
 ![districts_shutdown_map_full_ts_log](https://user-images.githubusercontent.com/17031112/235295295-ce850a40-0f31-43c7-b03a-86b8ff507eab.jpg)
 ![time_series_plot_viridis](https://user-images.githubusercontent.com/17031112/235295299-7f500040-b85c-40c8-b2aa-efb03c8ab5ae.jpg)
 
 ### References
-[1] Access Now. (2023, 20. March). ***Five years in a row: India is 2022’s biggest internet shutdowns offender***. Access Now. https://www.accessnow.org/press-release/keepiton-internet-shutdowns-2022-india/
+[1] Access Now. (2023a, 20. March). ***Five years in a row: India is 2022’s biggest internet shutdowns offender***. Access Now. https://www.accessnow.org/press-release/keepiton-internet-shutdowns-2022-india/
+
+[2] Access Now. (2023b, 19. May). ***KeepItOn: Fighting internet shutdowns around the world***. Access Now. https://www.accessnow.org/campaign/keepiton/
